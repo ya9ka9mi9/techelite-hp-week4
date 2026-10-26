@@ -4,9 +4,9 @@
 ?>
 <article class="post-card">
   <a href="<?= h($post['url']) ?>" class="post-card__link">
-    <img class="post-card__img" src="<?= h($post['image']) ?>" alt="<?= h($post['alt']) ?>" loading="lazy" width="1200" height="800">
+    <img class="post-card__img" src="<?= h($post['image']) ?>" alt="<?= h($post['alt']) ?>" loading="lazy" width="380" height="230">
     <div class="post-card__body">
-      <time class="post-card__date" datetime="<?= h($post['date']) ?>"><?= h(str_replace('-', '.', $post['date'])) ?></time>
+      <time class="post-card__date" datetime="<?= h($post['date']) ?>"><?= h(str_replace('-', '/', $post['date'])) ?></time>
       <h3 class="post-card__title"><?= h($post['title']) ?></h3>
       <span class="post-card__tag"><?= h($post['category']) ?></span>
     </div>

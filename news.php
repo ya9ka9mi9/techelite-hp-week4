@@ -4,31 +4,22 @@ $page_description = '楽園雅苑からの新着情報・休館日などのお�
 include 'includes/header.php';
 require_once __DIR__ . '/includes/data.php';
 
-// 下層ページ共通の見出し
-$page_heading = 'お知らせ';
-$breadcrumbs  = [['label' => 'お知らせ']];
+$page_heading   = 'お知らせ';
+$page_head_line = false;
+$breadcrumbs    = [['label' => 'お知らせ']];
 include __DIR__ . '/includes/parts/page-head.php';
 ?>
 
-<div class="section">
-  <div class="container">
+<div class="news-page">
+  <!-- お知らせの行（TOP と同じ部品） -->
+  <ul class="news-list">
+    <?php foreach ($news_items as $news): ?>
+      <?php include __DIR__ . '/includes/parts/news-item.php'; ?>
+    <?php endforeach; ?>
+  </ul>
 
-    <!-- お知らせ一覧（TOP と同じ .news-list / .news-item） -->
-    <ul class="news-list">
-      <?php foreach ($news_items as $news): ?>
-        <?php include __DIR__ . '/includes/parts/news-item.php'; ?>
-      <?php endforeach; ?>
-    </ul>
-
-    <!-- ページネーション（枠のみ） -->
-    <nav class="pagination" aria-label="ページ送り">
-      <ul class="pagination__list">
-        <li><span class="pagination__item is-current" aria-current="page">1</span></li>
-        <li><a href="#" class="pagination__item">2</a></li>
-      </ul>
-    </nav>
-
-  </div>
+  <!-- ページネーション（ブログ一覧と同じ部品） -->
+  <?php include __DIR__ . '/includes/parts/pagination.php'; ?>
 </div>
 
 <?php include 'includes/footer.php'; ?>
